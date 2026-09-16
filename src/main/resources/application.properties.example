@@ -1,0 +1,4 @@
+db.url=jdbc:postgresql://localhost:5432/flight_booking_repository
+db.user=YOUR_USER
+db.pass=YOUR_PASSWORD_HERE
+db.driver= org.postgresql.Driver
