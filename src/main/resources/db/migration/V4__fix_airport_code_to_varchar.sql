@@ -1,0 +1,1 @@
+ALTER TABLE airport ALTER COLUMN airport_code TYPE VARCHAR(3);

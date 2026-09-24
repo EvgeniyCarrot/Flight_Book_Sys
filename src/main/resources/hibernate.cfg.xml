@@ -11,5 +11,14 @@
     <property name="show_sql">true</property>
     <property name="format_sql">true</property>
 
+    <mapping class="com.booking_system.entities.Aircraft"/>
+    <mapping class="com.booking_system.entities.Airport"/>
+    <mapping class="com.booking_system.entities.Booking"/>
+    <mapping class="com.booking_system.entities.Flight"/>
+    <mapping class="com.booking_system.entities.Passenger"/>
+    <mapping class="com.booking_system.entities.Seat"/>
+    <mapping class="com.booking_system.entities.Ticket"/>
+    <mapping class="com.booking_system.entities.Discount"/>
+    <mapping class="com.booking_system.entities.AuditEntity"/>
   </session-factory>
 </hibernate-configuration>

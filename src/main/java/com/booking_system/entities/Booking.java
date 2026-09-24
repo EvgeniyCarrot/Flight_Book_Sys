@@ -1,5 +1,6 @@
 package com.booking_system.entities;
 
+import com.booking_system.enums.BookingStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,7 +25,8 @@ public class Booking {
 
     @ToString.Include
     @Column(name = "booking_status", nullable = false, length = 64)
-    private String bookingStatus;
+    @Enumerated(EnumType.STRING)
+    private BookingStatus bookingStatus;
 
     @ToString.Include
     @Column(name = "created_at", nullable = false)

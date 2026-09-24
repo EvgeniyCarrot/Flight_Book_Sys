@@ -1,5 +1,6 @@
 package com.booking_system.entities;
 
+import com.booking_system.enums.TicketStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,35 +25,35 @@ public class Ticket {
     private Long id;
 
     @Column(name = "price", nullable = false)
+    @ToString.Include
     private BigDecimal price;
 
     @Column(name = "tickets_no", nullable = false, unique = true, length = 64)
+    @ToString.Include
     private String ticketsNo;
 
     @Column(name = "seat_no", nullable = false, length = 4)
+    @ToString.Include
     private String seatNo;
 
     @Column(name = "status", nullable = false, length = 32)
-    private String status;
+    @ToString.Include
+    @Enumerated(EnumType.STRING)
+    private TicketStatus status;
 
     @Column(name = "locked_at")
+    @ToString.Include
     private LocalDateTime lockedAt;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "flight_id", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Flight flight;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "passenger_id", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Passenger passenger;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "booking_id", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Booking booking;
 }

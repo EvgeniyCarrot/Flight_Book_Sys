@@ -33,7 +33,6 @@ public class Discount {
     private BigDecimal ratePercent;
 
     @ManyToMany(mappedBy = "passengerDiscounts", fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @Builder.Default
     private Set<Passenger> passengers = new HashSet<>();
 }

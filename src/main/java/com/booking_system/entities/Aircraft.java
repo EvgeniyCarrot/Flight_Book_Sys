@@ -32,7 +32,6 @@ public class Aircraft {
     private Short numberOfSeats;
 
     @OneToMany(mappedBy = "aircraft", fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @Builder.Default
     Set<Seat> seats = new HashSet<>();
 }

@@ -25,7 +25,6 @@ public class Seat {
     @Id
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "aircraft_id", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @EqualsAndHashCode.Include
     private Aircraft aircraft;
 }

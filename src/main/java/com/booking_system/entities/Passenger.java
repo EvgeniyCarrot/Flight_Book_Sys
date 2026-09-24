@@ -58,12 +58,10 @@ public class Passenger {
             joinColumns = @JoinColumn(name = "passenger_id"),
             inverseJoinColumns = @JoinColumn(name = "discount_id")
     )
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @Builder.Default
     private Set<Discount> passengerDiscounts = new HashSet<>();
 
     @OneToMany(mappedBy = "passenger", fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @Builder.Default
     List<Ticket> tickets = new ArrayList<>();
 }

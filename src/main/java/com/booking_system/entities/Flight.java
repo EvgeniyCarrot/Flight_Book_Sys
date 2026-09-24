@@ -1,5 +1,6 @@
 package com.booking_system.entities;
 
+import com.booking_system.enums.FlightStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.OptimisticLockType;
@@ -39,7 +40,8 @@ public class Flight {
 
     @Column(name = "status", length = 32, nullable = false)
     @ToString.Include
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private FlightStatus status;
 
     @Version
     @Column(name = "version", nullable = false)
@@ -49,19 +51,13 @@ public class Flight {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "aircraft_id", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Aircraft aircraft;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "departure_airport_code", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Airport departureAirport;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "arrival_airport_code", nullable = false)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
     private Airport arrivalAirport;
 }

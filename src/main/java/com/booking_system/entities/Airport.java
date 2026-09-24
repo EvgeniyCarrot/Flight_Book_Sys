@@ -18,7 +18,7 @@ import java.util.List;
 public class Airport {
 
     @Id
-    @Column(name = "airport_code", length = 3)
+    @Column(name = "airport_code", length = 3, nullable = false)
     @EqualsAndHashCode.Include
     @ToString.Include
     private String airportCode;
@@ -36,12 +36,10 @@ public class Airport {
     private String timezone;
 
     @OneToMany(mappedBy = "departureAirport", fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @Builder.Default
     List<Flight> departureFlights = new ArrayList<>();
 
     @OneToMany(mappedBy = "arrivalAirport", fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @EqualsAndHashCode.Exclude
+    @Builder.Default
     List<Flight> arrivalFlights = new ArrayList<>();
 }
